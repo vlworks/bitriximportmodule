@@ -1,0 +1,2 @@
+<?php
+$MESS["VLWORKS_BITRIXIMPORTMODULE_STEP_IMPORT_LISTING"] = "К списку импортов";
