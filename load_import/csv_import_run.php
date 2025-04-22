@@ -1484,42 +1484,6 @@ if ('' == $strImportErrorMessage) // '' == $strImportErrorMessage
                                     $arRes[$i] = (isset($arProductCache[$arRes[$i]]) ? $arProductCache[$arRes[$i]] : '');
                                 }
                             }
-                            elseif ($arIBlockProperty[$cur_prop_id]["PROPERTY_TYPE"]=="L")
-                            {
-                                $arRes[$i] = trim($arRes[$i]);
-                                if ('' !== $arRes[$i])
-                                {
-                                    $propValueHash = md5($arRes[$i]);
-                                    if (!isset($arPropertyListCache[$cur_prop_id]))
-                                    {
-                                        $arPropertyListCache[$cur_prop_id] = array();
-                                        $propEnumRes = CIBlockPropertyEnum::GetList(
-                                            array('SORT' => 'ASC', 'VALUE' => 'ASC'),
-                                            array('IBLOCK_ID' => $IBLOCK_ID, 'PROPERTY_ID' => $arIBlockProperty[$cur_prop_id]['ID'])
-                                        );
-                                        while ($propEnumValue = $propEnumRes->Fetch())
-                                            $arPropertyListCache[$cur_prop_id][md5($propEnumValue['VALUE'])] = $propEnumValue['ID'];
-                                    }
-                                    if (!isset($arPropertyListCache[$cur_prop_id][$propValueHash]))
-                                    {
-                                        $arPropertyListCache[$cur_prop_id][$propValueHash] = CIBlockPropertyEnum::Add(
-                                            array(
-                                                "PROPERTY_ID" => $arIBlockProperty[$cur_prop_id]['ID'],
-                                                "VALUE" => $arRes[$i],
-                                                "TMP_ID" => $tmpid
-                                            )
-                                        );
-                                    }
-                                    if (isset($arPropertyListCache[$cur_prop_id][$propValueHash]))
-                                    {
-                                        $arRes[$i] = $arPropertyListCache[$cur_prop_id][$propValueHash];
-                                    }
-                                    else
-                                    {
-                                        $arRes[$i] = '';
-                                    }
-                                }
-                            }
                             elseif ($arIBlockProperty[$cur_prop_id]["PROPERTY_TYPE"]=="F")
                             {
                                 $arRes[$i] = trim($arRes[$i]);
