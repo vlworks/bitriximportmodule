@@ -319,7 +319,7 @@ $tabControl->BeginNextTab();
 if ($STEP == 1)
 {
 	?><tr class="heading">
-		<td colspan="2"><? echo GetMessage("CATI_DATA_LOADING"); ?> (v1.0.0)</td>
+		<td colspan="2"><? echo GetMessage("CATI_DATA_LOADING"); ?> (v1.0.1)</td>
 	</tr>
 	<tr>
 		<td valign="top" width="40%"><? echo GetMessage("CATI_DATA_FILE_SITE"); ?>:</td>
