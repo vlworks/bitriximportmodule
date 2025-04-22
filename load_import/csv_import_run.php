@@ -484,21 +484,7 @@ class CAssocData extends CCSVData
         global $multi_separator_type;
 
         if ($multi_separator_type != "" && strpos($value, $multi_separator_type) !== false) {
-
-            $arrEnum = Helper::GetEnumList($this->IBLOCK_ID);
-            $tmpEnum = explode($multi_separator_type, $value);
-
-            foreach ($tmpEnum as $eval) {
-                $newArr[] = (array_search(trim($eval), $arrEnum[$prop_id])) ?
-                    array_search(trim($eval), $arrEnum[$prop_id]) :
-                    CIBlockPropertyEnum::Add(array(
-                        "PROPERTY_ID" => $prop_id,
-                        "VALUE" => $eval,
-                        "TMP_ID" => $this->tmpid,
-                    ));
-            }
-
-            return $newArr;
+            $value = explode($multi_separator_type, $value);
         }
 
         static $arEnumCache = array();
