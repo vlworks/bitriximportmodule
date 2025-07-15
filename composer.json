@@ -3,7 +3,7 @@
   "description": "Bitrix module, CSV product import extend",
   "type": "bitrix-d7-module",
   "minimum-stability": "stable",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "homepage": "https://github.com/vlworks/bitriximportmodule",
   "authors": [
