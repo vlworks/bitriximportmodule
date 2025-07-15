@@ -2371,6 +2371,17 @@ if (strlen($strImportErrorMessage) <= 0)
             {
                 $strImportErrorMessageR.= GetMessage("IBLOCK_ADM_IMP_LINE_NO")." ".$line_num.". ".GetMessage("IBLOCK_ADM_IMP_ERROR_LOADING")." ".$el->LAST_ERROR."<br>";
             }
+
+            if (!empty($arRes['M_RATIO'])) {
+                $existRatio = Catalog\MeasureRatioTable::getList(array(
+                    'select' => array('ID'),
+                    'filter' => array('=PRODUCT_ID' => $PRODUCT_ID)
+                ))->fetch();
+
+                if (!empty($existRatio['ID'])) {
+                    $result = Catalog\MeasureRatioTable::update($existRatio['ID'], ['RATIO' => $arRes['M_RATIO']]);
+                }
+            }
         }
 
         if (strlen($strImportErrorMessageR) <= 0)

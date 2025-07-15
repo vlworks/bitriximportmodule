@@ -376,8 +376,8 @@ if ($STEP == 2)
 		<td valign="top" width="60%"><?
 			if (!isset($fields_type) || ('R' != $fields_type && 'F' != $fields_type))
 				$fields_type = 'R';
-			?><input type="radio" name="fields_type" id="id_fields_type_r" value="R" <? if ($fields_type=="R") echo "checked"; ?> onClick="ChangeExtra(this);"><label for="id_fields_type_r"><? echo GetMessage("CATI_RAZDELITEL"); ?></label><br>
-			<input type="radio" name="fields_type" id="id_fields_type_f" value="F" <? if ($fields_type=="F") echo "checked"; ?> onClick="ChangeExtra(this);"><label for="id_fields_type_f"><? echo GetMessage("CATI_FIXED"); ?></label>
+			?><input type="radio" name="fields_type" id="id_fields_type_r" value="R" checked onClick="ChangeExtra(this);"><label for="id_fields_type_r"><? echo GetMessage("CATI_RAZDELITEL"); ?></label><br>
+			<input type="radio" name="fields_type" id="id_fields_type_f" value="F" onClick="ChangeExtra(this);"><label for="id_fields_type_f"><? echo GetMessage("CATI_FIXED"); ?></label>
 			<script type="text/javascript">
 			function ChangeExtra(obj)
 			{
@@ -708,6 +708,8 @@ if ($STEP == 3)
 				}
 				unset($field);
 				?>
+                    <option value="" style="font-style: italic; text-align: center;">--- Другие поля ---</option>
+                    <option value="M_RATIO">Коэффициент единицы измерения (M_RATIO)</option>
 				</select>
 			</td>
 		</tr><?
